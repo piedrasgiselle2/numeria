@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Numeria · Clase 1</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="app">
+    <header class="topbar">
+      <div class="brand">
+        <span class="crest">N</span>
+        <div>
+          <strong>NUMERIA</strong>
+          <small>La aldea de las proporciones</small>
+        </div>
+      </div>
+      <div class="progress-wrap">
+        <span id="progressText">Inicio</span>
+        <div class="progress"><div id="progressBar"></div></div>
+      </div>
+    </header>
+
+    <main>
+      <section class="screen active" id="screen-welcome">
+        <div class="hero-card">
+          <p class="eyebrow">CAPÍTULO I</p>
+          <h1>La llegada a Numeria</h1>
+          <p class="lead">
+            Después de una gran tormenta, la antigua aldea de Numeria necesita nuevos habitantes
+            que ayuden a reconstruirla.
+          </p>
+
+          <div class="village-stage">
+            <div class="sky-glow"></div>
+            <div class="mountain mountain-a"></div>
+            <div class="mountain mountain-b"></div>
+            <div class="village-building b1">⌂</div>
+            <div class="village-building b2">⌂</div>
+            <div class="village-building castle">♜</div>
+            <div class="village-path"></div>
+          </div>
+
+          <p class="story">
+            Antes de comenzar, el Consejo de la Aldea quiere conocerte y descubrir cómo pensás
+            frente a algunos problemas que aparecen en la vida de Numeria.
+          </p>
+
+          <button class="primary" data-next="screen-character">Entrar a la aldea</button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-character">
+        <div class="panel">
+          <p class="eyebrow">PASO 1</p>
+          <h2>Creá tu habitante de Numeria</h2>
+          <p>
+            Elegí un oficio y personalizá la apariencia. Cada oficio tiene su propia vestimenta,
+            pero ninguno da ventajas matemáticas.
+          </p>
+
+          <div class="creator-layout">
+            <div class="preview-card">
+              <div class="pixel-scene">
+                <div id="avatarPreview" class="rpg-avatar role-alchemist skin-1 hair-short haircolor-1 outfitcolor-1">
+                  <div class="hair-back"></div>
+                  <div class="body"></div>
+                  <div class="cape"></div>
+                  <div class="head">
+                    <span class="eye eye-left"></span>
+                    <span class="eye eye-right"></span>
+                    <span class="mouth"></span>
+                  </div>
+                  <div class="hair-front"></div>
+                  <div class="role-detail detail-a"></div>
+                  <div class="role-detail detail-b"></div>
+                  <div class="held-item">🧪</div>
+                </div>
+              </div>
+              <div class="preview-meta">
+                <strong id="previewName">Aventurero/a</strong>
+                <span id="previewRole">Alquimista</span>
+              </div>
+            </div>
+
+            <div class="creator-controls">
+              <label class="field">
+                <span>Nombre de aventurero/a</span>
+                <input id="playerName" type="text" maxlength="24" placeholder="Ej.: Lira, Brann, Nox..." />
+              </label>
+
+              <div class="custom-group">
+                <span class="custom-label">Oficio</span>
+                <div class="role-grid" id="characterGrid">
+                  <button type="button" class="character selected" data-character="Alquimista">
+                    <span class="role-icon">🧪</span><strong>Alquimista</strong><small>Túnica y frascos</small>
+                  </button>
+                  <button type="button" class="character" data-character="Arquera/o">
+                    <span class="role-icon">🏹</span><strong>Arquera/o</strong><small>Cuero y arco</small>
+                  </button>
+                  <button type="button" class="character" data-character="Herrera/o">
+                    <span class="role-icon">⚒️</span><strong>Herrera/o</strong><small>Delantal y martillo</small>
+                  </button>
+                  <button type="button" class="character" data-character="Exploradora/or">
+                    <span class="role-icon">🧭</span><strong>Exploradora/or</strong><small>Capa y brújula</small>
+                  </button>
+                  <button type="button" class="character" data-character="Granjera/o">
+                    <span class="role-icon">🌾</span><strong>Granjera/o</strong><small>Ropa de campo</small>
+                  </button>
+                  <button type="button" class="character" data-character="Guardiana/o">
+                    <span class="role-icon">🛡️</span><strong>Guardiana/o</strong><small>Armadura y escudo</small>
+                  </button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <span class="custom-label">Color de piel</span>
+                <div class="swatches" data-setting="skin">
+                  <button type="button" class="swatch skin-swatch-1 selected" data-value="1" aria-label="Piel 1"></button>
+                  <button type="button" class="swatch skin-swatch-2" data-value="2" aria-label="Piel 2"></button>
+                  <button type="button" class="swatch skin-swatch-3" data-value="3" aria-label="Piel 3"></button>
+                  <button type="button" class="swatch skin-swatch-4" data-value="4" aria-label="Piel 4"></button>
+                  <button type="button" class="swatch skin-swatch-5" data-value="5" aria-label="Piel 5"></button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <span class="custom-label">Largo del pelo</span>
+                <div class="option-row" data-setting="hair">
+                  <button type="button" class="mini-option selected" data-value="short">Corto</button>
+                  <button type="button" class="mini-option" data-value="medium">Medio</button>
+                  <button type="button" class="mini-option" data-value="long">Largo</button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <span class="custom-label">Color del pelo</span>
+                <div class="swatches hair-swatches" data-setting="haircolor">
+                  <button type="button" class="swatch hair-swatch-1 selected" data-value="1" aria-label="Pelo negro"></button>
+                  <button type="button" class="swatch hair-swatch-2" data-value="2" aria-label="Pelo castaño"></button>
+                  <button type="button" class="swatch hair-swatch-3" data-value="3" aria-label="Pelo rubio"></button>
+                  <button type="button" class="swatch hair-swatch-4" data-value="4" aria-label="Pelo cobrizo"></button>
+                  <button type="button" class="swatch hair-swatch-5" data-value="5" aria-label="Pelo fantasía"></button>
+                </div>
+              </div>
+
+              <div class="custom-group">
+                <span class="custom-label" id="outfitLabel">Color de la túnica</span>
+                <div class="swatches outfit-swatches" data-setting="outfitcolor">
+                  <button type="button" class="swatch outfit-swatch-1 selected" data-value="1" aria-label="Color 1"></button>
+                  <button type="button" class="swatch outfit-swatch-2" data-value="2" aria-label="Color 2"></button>
+                  <button type="button" class="swatch outfit-swatch-3" data-value="3" aria-label="Color 3"></button>
+                  <button type="button" class="swatch outfit-swatch-4" data-value="4" aria-label="Color 4"></button>
+                  <button type="button" class="swatch outfit-swatch-5" data-value="5" aria-label="Color 5"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button class="secondary" data-prev="screen-welcome">Volver</button>
+            <button class="primary" id="confirmCharacter" disabled>Guardar personaje</button>
+          </div>
+          <p class="hint">Tu personaje quedará guardado en este dispositivo para las próximas misiones.</p>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-journal">
+        <div class="panel">
+          <p class="eyebrow">PASO 2</p>
+          <h2>Prepará tu Diario del Aventurero</h2>
+
+          <div class="journal-card">
+            <div class="journal-icon">📖</div>
+            <div>
+              <h3>Antes de resolver en la web...</h3>
+              <p>
+                En cada desafío vas a escribir en tu carpeta <strong>cómo lo pensaste</strong>,
+                aunque no estés seguro/a del resultado.
+              </p>
+              <p class="note">No borres tus intentos: las distintas ideas también forman parte de la aventura.</p>
+            </div>
+          </div>
+
+          <div class="copy-card">
+            <p class="mini-title">Escribí como título:</p>
+            <div class="copy-title">📜 Diario de Aventuras de Numeria · Capítulo I</div>
+            <p>Personaje: <span id="journalCharacter">—</span></p>
+            <p>Nombre de aventurero/a: <span id="journalName">—</span></p>
+          </div>
+
+          <label class="check-line">
+            <input type="checkbox" id="journalReady" />
+            <span>Ya preparé el título en mi carpeta.</span>
+          </label>
+
+          <div class="actions">
+            <button class="secondary" data-prev="screen-character">Volver</button>
+            <button class="primary" id="startMission" disabled>Recibir mi primera misión</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-mission-intro">
+        <div class="panel mission-panel">
+          <div class="npc-row">
+            <div class="npc">👑</div>
+            <div class="speech">
+              <small>CONSEJO DE NUMERIA</small>
+              <p>
+                “<span id="missionName">Aventurero/a</span>, antes de confiarte una tarea de reconstrucción,
+                necesitamos saber cómo resolvés algunos problemas de la aldea.”
+              </p>
+            </div>
+          </div>
+
+          <div class="mission-seal">
+            <span>⚜</span>
+            <div>
+              <small>MISIÓN I</small>
+              <h2>El registro de los nuevos habitantes</h2>
+            </div>
+          </div>
+
+          <p class="important">
+            En esta misión <strong>no hay pistas ni fórmulas</strong>. Resolvé cada situación como vos sepas.
+            Primero dejá tu procedimiento en la carpeta y después ingresá únicamente tu respuesta.
+          </p>
+
+          <button class="primary" data-next="screen-challenge">Comenzar desafío</button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-challenge">
+        <div class="panel">
+          <div class="challenge-top">
+            <div>
+              <p class="eyebrow">MISIÓN I</p>
+              <h2 id="challengeTitle">Desafío 1</h2>
+            </div>
+            <div class="counter"><span id="challengeNumber">1</span>/4</div>
+          </div>
+
+          <div class="quest-card">
+            <div class="quest-visual" id="questIcon">🍞</div>
+            <p id="questText"></p>
+          </div>
+
+          <div class="journal-reminder">
+            ✏️ <strong>Antes de responder:</strong> resolvelo en tu Diario del Aventurero y escribí cómo lo pensaste.
+          </div>
+
+          <label class="field answer-field">
+            <span id="answerLabel">Tu respuesta</span>
+            <input id="answerInput" type="text" inputmode="decimal" autocomplete="off" />
+          </label>
+
+          <label class="check-line">
+            <input type="checkbox" id="workRecorded" />
+            <span>Ya registré mi procedimiento en la carpeta.</span>
+          </label>
+
+          <div id="challengeFeedback" class="feedback hidden"></div>
+
+          <div class="actions">
+            <button class="primary" id="submitAnswer" disabled>Registrar respuesta</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-reflection">
+        <div class="panel">
+          <p class="eyebrow">CIERRE DE LA MISIÓN</p>
+          <h2>Consejo de la Aldea</h2>
+          <p>
+            Ya resolviste los cuatro desafíos. Ahora queremos mirar <strong>cómo pensaste</strong>.
+          </p>
+
+          <div class="reflection-grid">
+            <div class="reflection-card">
+              <span>💡</span>
+              <p>Marcá cuál problema te resultó más sencillo y explicá por qué.</p>
+            </div>
+            <div class="reflection-card">
+              <span>🧩</span>
+              <p>Elegí un problema y escribí si podrías resolverlo de otra manera.</p>
+            </div>
+            <div class="reflection-card">
+              <span>💬</span>
+              <p>Anotá una idea de otra persona que te haya resultado interesante.</p>
+            </div>
+          </div>
+
+          <label class="check-line">
+            <input type="checkbox" id="reflectionReady" />
+            <span>Ya completé el cierre en mi carpeta.</span>
+          </label>
+
+          <button class="primary" id="finishMission" disabled>Ver qué cambió en Numeria</button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-map">
+        <div class="panel map-panel">
+          <p class="eyebrow">CAPÍTULO I COMPLETADO</p>
+          <h2>Tu primera huella en Numeria</h2>
+          <p class="lead small">
+            El Consejo ya te reconoce como habitante. Tu primera recompensa queda registrada en el mapa.
+          </p>
+
+          <div class="reward-banner">
+            <div class="reward-icon">⚜</div>
+            <div>
+              <small>OBJETO ADQUIRIDO</small>
+              <strong>Sello del Consejo de Numeria</strong>
+              <span>Te habilita a colaborar en la reconstrucción de la aldea.</span>
+            </div>
+          </div>
+
+          <div class="numeria-map">
+            <div class="map-water water-left"></div>
+            <div class="map-water water-right"></div>
+            <div class="map-road road-a"></div>
+            <div class="map-road road-b"></div>
+
+            <div class="map-location council completed">
+              <div class="map-building">🏛️</div>
+              <strong>Consejo</strong>
+              <small>Completado ✓</small>
+              <span class="map-badge">⚜</span>
+            </div>
+
+            <div class="map-location farm unlocked">
+              <div class="map-building">🌾</div>
+              <strong>Granja</strong>
+              <small>Próxima misión</small>
+              <span class="map-badge">!</span>
+            </div>
+
+            <div class="map-location lab locked">
+              <div class="map-building">🧪</div>
+              <strong>Laboratorio</strong>
+              <small>Bloqueado</small>
+            </div>
+
+            <div class="map-location forge locked">
+              <div class="map-building">⚒️</div>
+              <strong>Herrería</strong>
+              <small>Bloqueado</small>
+            </div>
+
+            <div class="map-location market locked">
+              <div class="map-building">🏪</div>
+              <strong>Mercado</strong>
+              <small>Bloqueado</small>
+            </div>
+
+            <div class="map-location castle-loc locked">
+              <div class="map-building">🏰</div>
+              <strong>Castillo</strong>
+              <small>Bloqueado</small>
+            </div>
+
+            <div class="player-on-map">
+              <div id="mapAvatar" class="rpg-avatar map-mini role-alchemist skin-1 hair-short haircolor-1 outfitcolor-1">
+                <div class="hair-back"></div>
+                <div class="body"></div>
+                <div class="cape"></div>
+                <div class="head">
+                  <span class="eye eye-left"></span>
+                  <span class="eye eye-right"></span>
+                  <span class="mouth"></span>
+                </div>
+                <div class="hair-front"></div>
+                <div class="role-detail detail-a"></div>
+                <div class="role-detail detail-b"></div>
+                <div class="held-item" id="mapHeldItem">🧪</div>
+              </div>
+              <span id="mapPlayerName">Aventurero/a</span>
+            </div>
+          </div>
+
+          <div class="player-card">
+            <div id="finalAvatar" class="rpg-avatar card-mini role-alchemist skin-1 hair-short haircolor-1 outfitcolor-1">
+              <div class="hair-back"></div>
+              <div class="body"></div>
+              <div class="cape"></div>
+              <div class="head">
+                <span class="eye eye-left"></span>
+                <span class="eye eye-right"></span>
+                <span class="mouth"></span>
+              </div>
+              <div class="hair-front"></div>
+              <div class="role-detail detail-a"></div>
+              <div class="role-detail detail-b"></div>
+              <div class="held-item" id="finalHeldItem">🧪</div>
+            </div>
+            <div>
+              <small>HABITANTE REGISTRADO</small>
+              <strong id="finalName">—</strong>
+              <span id="finalCharacter">—</span>
+            </div>
+          </div>
+
+          <div class="teacher-tools">
+            <button class="secondary" id="downloadData">Descargar registro (.csv)</button>
+            <button class="ghost" id="restartGame">Reiniciar clase</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>Numeria · Secuencia didáctica de proporcionalidad y porcentajes</span>
+      <span>Clase 1 · Diagnóstico inicial</span>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
